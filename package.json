@@ -1,0 +1,21 @@
+{
+  "name": "algos-and-ds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "heaps-find-the-running-median.js",
+  "scripts": {
+    "start": "nodemon index.js --exec babel-node",
+    "test": "jest --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^22.4.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1"
+  }
+}
