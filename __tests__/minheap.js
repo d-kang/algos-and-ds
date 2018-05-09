@@ -4,7 +4,10 @@ import MinHeap from '../minheap';
 // [3, 4, 5, 12, 8, 7]
 
 describe('MinHeap', () => {
+
+
   describe('Insert', () => {
+
     test('should insert into heap', () => {
       const minHeap = new MinHeap();
       minHeap.insert(12)
@@ -86,7 +89,77 @@ describe('MinHeap', () => {
     });
   });
 
+
+  describe('swap', () => {
+    test('should swap elements', () => {
+      const minHeap = new MinHeap();
+      minHeap.insert(1)
+      minHeap.insert(12)
+      minHeap.swap(0, 1)
+
+      expect(minHeap.heap).toEqual([12, 1])
+
+    });
+  });
+
   describe('extract min', () => {
+    test('should swap head with tail', () => {
+      const minHeap = new MinHeap();
+      minHeap.insert(1)
+      minHeap.insert(12)
+      minHeap.extractMin()
+      // expect(minHeap.heap[0]).toBe(12)
+      expect(minHeap.heap).toEqual([12])
+    });
+
+    test('should extract tail', () => {
+      const minHeap = new MinHeap();
+      minHeap.insert(1)
+      minHeap.insert(12)
+      minHeap.extractMin()
+      expect(minHeap.heap[minHeap.heap.length - 1]).not.toBe(1)
+    });
+
+
+    test('should bubble down one level', () => {
+      const minHeap = new MinHeap();
+      minHeap.insert(1)
+      minHeap.insert(12)
+      minHeap.insert(15)
+      minHeap.extractMin()
+      expect(minHeap.heap).toEqual([12, 15])
+    });
+
+    test('should bubble down multilevel: test left', () => {
+      const minHeap = new MinHeap();
+      minHeap.insert(1)
+      minHeap.insert(2)
+      minHeap.insert(3)
+      minHeap.insert(4)
+      minHeap.insert(5)
+      minHeap.insert(6)
+      minHeap.insert(7)
+      minHeap.insert(8)
+      expect(minHeap.heap).toEqual([2, 4, 3, 8, 5, 6, 7]);
+    });
+
+
+    // test('should bubble down multilevel: test left', () => {
+    //   const minHeap = new MinHeap();
+    //   minHeap.insert(1)
+    //   minHeap.insert(2)
+    //   minHeap.insert(3)
+    //   minHeap.insert(5)
+    //   minHeap.insert(4)
+    //   minHeap.insert(6)
+    //   minHeap.insert(7)
+    //   minHeap.insert(8)
+    //   expect(minHeap.heap).toEqual([2, 4, 3, 5, 8, 6, 7]);
+    // });
+
+    // if heap has no elems
+    // if heap has 1 elem
+
 
   });
 

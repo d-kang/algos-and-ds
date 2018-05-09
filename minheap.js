@@ -27,7 +27,47 @@ class MinHeap {
     this.heap = [];
   }
 
+  swap = (i, k) => {
+    const parent = this.heap[i];
+    const child = this.heap[k];
+    const tempStore = parent;
 
+    this.heap[i] = child;
+    this.heap[k] = tempStore;
+  }
+
+
+  extractMin = () => {
+    this.swap(0, this.heap.length - 1)
+    const rootVal = this.heap.pop();
+
+    this.bubbleDown(0)
+
+    return rootVal; // add test for minVal
+  }
+
+  bubbleDown = (parentIndex) => {
+    // this.heap => [1, 2, 3, 4, 5, 6, 7, 8]
+    // this.heap => [2, 4, 3, 8, 5, 6, 7]
+
+    const leftChildIndex = (parentIndex * 2) + 1;
+    const rightChildIndex = (parentIndex * 2) + 2;
+
+    const leftVal = this.heap[leftChildIndex]
+    const rightVal = this.heap[rightChildIndex]
+
+    let childIndex;
+    if (rightVal !== undefined) {
+      childIndex = leftVal < rightVal ? leftChildIndex : rightChildIndex;
+    } else if (leftVal !== undefined) {
+      childIndex = leftChildIndex;
+    }
+
+    if (this.heap.length > 1) {
+      this.swap(0, childIndex);
+    }
+
+  }
 
   insert = (val) => {
     this.heap.push(val);
@@ -36,30 +76,25 @@ class MinHeap {
     // we can find the index of the parent
 
     if (this.heap.length > 1) {
-      this.swapWithParent(this.heap.length - 1);
+      this.bubbleUp(this.heap.length - 1);
     }
-
-
   }
-  // this.heap => [12, 1]
-  swapWithParent = (i) => {
 
 
+  bubbleUp = (childIndex) => {
     // find parent index
-    const isLeftChild = i % 2 === 1;
+    const isLeftChild = childIndex % 2 === 1;
 
-    const parentIndex = isLeftChild ? (i - 1) / 2 : (i - 2) / 2;
+    const parentIndex = isLeftChild ? (childIndex - 1) / 2 : (childIndex - 2) / 2;
 
     const parent = this.heap[parentIndex];
-    const child = this.heap[i];
+    const child = this.heap[childIndex];
 
     if (child < parent) {
-      const tempStore = parent;
-      this.heap[parentIndex] = child;
-      this.heap[i] = tempStore;
+      this.swap(parentIndex, childIndex)
 
       if (parentIndex !== 0) {
-        this.swapWithParent(parentIndex);
+        this.bubbleUp(parentIndex);
       }
     }
 
