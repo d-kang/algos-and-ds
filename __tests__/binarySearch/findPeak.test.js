@@ -16,10 +16,10 @@ describe('peak finding', () => {
     expect(result).toBe(expected);
   });
 
-  test('should find plateou', () => {
+  test('should find plateau', () => {
     const arr = [1, 2, 3, 3, 2];
     const result = findPeak(arr);
-    const expected = 2;
+    const expected = 3;
 
     expect(result).toBe(expected);
   });
