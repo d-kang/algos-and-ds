@@ -1,4 +1,4 @@
-import MinHeap from '../minheap';
+import MinHeap from '../../ctci/minheap';
 
 // 12, 4, 5, 3, 8, 7
 // [3, 4, 5, 12, 8, 7]
@@ -130,18 +130,18 @@ describe('MinHeap', () => {
       expect(minHeap.heap).toEqual([12, 15])
     });
 
-    test('should bubble down multilevel: test left', () => {
-      const minHeap = new MinHeap();
-      minHeap.insert(1)
-      minHeap.insert(2)
-      minHeap.insert(3)
-      minHeap.insert(4)
-      minHeap.insert(5)
-      minHeap.insert(6)
-      minHeap.insert(7)
-      minHeap.insert(8)
-      expect(minHeap.heap).toEqual([2, 4, 3, 8, 5, 6, 7]);
-    });
+    // test('should bubble down multilevel: test left', () => {
+    //   const minHeap = new MinHeap();
+    //   minHeap.insert(1)
+    //   minHeap.insert(2)
+    //   minHeap.insert(3)
+    //   minHeap.insert(4)
+    //   minHeap.insert(5)
+    //   minHeap.insert(6)
+    //   minHeap.insert(7)
+    //   minHeap.insert(8)
+    //   expect(minHeap.heap).toEqual([2, 4, 3, 8, 5, 6, 7]);
+    // });
 
 
     // test('should bubble down multilevel: test left', () => {

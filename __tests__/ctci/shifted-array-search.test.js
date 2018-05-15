@@ -1,4 +1,4 @@
-import binarySearch from '../shifted-array-search';
+import binarySearch from '../../ctci/shifted-array-search';
 
 describe('shifted array search', () => {
   // test('should return middle index', () => {

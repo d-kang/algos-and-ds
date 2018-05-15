@@ -1,4 +1,4 @@
-import { Node, inorder_traversal, check_binary_search_tree } from '../isBST'
+import { Node, inorder_traversal, check_binary_search_tree } from '../../ctci/isBST'
 
 describe('BST', () => {
   test('check inorder traversal', () => {
